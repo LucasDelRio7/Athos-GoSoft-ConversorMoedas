@@ -95,7 +95,12 @@
 <script type="text/javascript">
 
     const url = "https://localhost:44383/";
-    let euro_real = "api/conversor/euro-real/#valor#";
+    const euro_real = "api/conversor/euro-real/";
+    const euro_dolar = "api/conversor/euro-dolar/";
+    const dolar_real = "api/conversor/dolar-real/";
+    const dolar_euro = "api/conversor/dolar-euro/";
+    const real_euro = "api/conversor/real-euro/";
+    const real_dolar = "api/conversor/real-dolar/";
     
     function alerta(mensagem) {
         $('#myModalTexto').html(mensagem);
@@ -109,61 +114,53 @@
             alerta('Valor inválido');
             return false;
         }
+        else if ($("#dropDwnDe").val() === $("#dropDwnPara").val()) {
+            $("#valorConvertido").val($("#valor").val());
+            return false;
+        }
 
         $('#loading').fadeIn();
 
-        var valor = $("#valor").val();
-        let metodo = euro_real.replace('#valor#', valor);
-
         $.ajax({
-            url: url + metodo,
+            url: url + setMetodo($("#valor").val()),
             dataType: 'json',
             contentType: 'application/json',
             method: 'GET'
         })
             .done(function (data) {
-                console.log(data);
                 $("#valorConvertido").val(data);
             })
             .fail(function (data) {
                 alerta(JSON.parse(data.responseText));
+                $('#loading').fadeOut();
             })
             .always(function () {
                 $('#loading').fadeOut();
             });
     });
 
-    function setNotaFiscal(data) {
+    function setMetodo(valor) {
 
-        $("#divComanda").hide();
-        $("#divFinalizar").hide();
-        $("#spanNumeroComanda").text(data.numero);
-        $("#spanValorTotal").text("R$ " + data.valorTotalComDesconto + ",00");
+        const de = $("#dropDwnDe").val();
+        const para = $("#dropDwnPara").val();
 
-        var tbProdutos = "<thead><tr><th scope='col'>Produto</th><th scope='col'>Valor Unidade</th><th scope='col'>Quantidade</th><th scope='col'>Total</th><th scope='col'>Desconto</th><th scope='col'>Total com desconto</th></tr></thead><tbody>";
-        let desconto = 0;
-        for (var i = 0; i < data.produtos.length; i++) {
+        if (de === '1' && para === '2')
+            return euro_dolar + valor;
 
-            let valorTotalComDesconto = data.produtos[i].valorTotal - data.produtos[i].desconto;
+        if (de === '1' && para === '3')
+            return euro_real + valor;
 
-            var tr = "<tr><td>" + data.produtos[i].nome + "</td><td>R$ "
-                + data.produtos[i].valorUnitario + ",00</td><td>"
-                + data.produtos[i].quantidade + "</td><td>R$ "
-                + data.produtos[i].valorTotal + ",00</td><td>R$ "
-                + data.produtos[i].desconto + ",00</td><td>R$ "
-                + valorTotalComDesconto + ",00</td></tr>";
+        if (de === '2' && para === '1')
+            return dolar_euro + valor;
 
-            if (data.produtos[i].desconto !== 0) {
-                desconto += data.produtos[i].desconto;
-            }
+        if (de === '2' && para === '3')
+            return dolar_real + valor;
 
-            tbProdutos += tr;
-        }
+        if (de === '3' && para === '1')
+            return real_euro + valor;
 
-        tbProdutos += "</tbody>";
-        $("#tbNotaFiscal").html(tbProdutos);
-        $("#spanValorTotalDesconto").text("R$ " + desconto + ",00");
-        $("#divNotaFiscal").show();
+        if (de === '3' && para === '2')
+            return real_dolar + valor;
     }
 
 </script>
