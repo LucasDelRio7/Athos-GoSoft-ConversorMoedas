@@ -43,7 +43,7 @@
             </div>
             <div class="col-lg-2">
                 <label>Valor Convertido</label>
-                <input id="valorConvertido" type="number" class="form-control" />
+                <input id="valorConvertido" type="number" class="form-control" disabled />
             </div>
         </div>
         <div class="row form-group justify-content-center mt-1">
@@ -128,7 +128,7 @@
             method: 'GET'
         })
             .done(function (data) {
-                $("#valorConvertido").val(data);
+                $("#valorConvertido").val(data.saida.valor);
             })
             .fail(function (data) {
                 alerta(JSON.parse(data.responseText));

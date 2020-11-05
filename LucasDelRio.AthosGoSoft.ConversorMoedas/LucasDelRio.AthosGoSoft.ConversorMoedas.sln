@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LucasDelRio.AthosGoSoft.ConversorMoedas.Web", "LucasDelRio.AthosGoSoft.ConversorMoedas.Web\LucasDelRio.AthosGoSoft.ConversorMoedas.Web.csproj", "{DE093C65-BEFC-4C56-89B2-1E9874F3FA00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LucasDelRio.AthosGoSoft.ConversorMoedas.Web", "LucasDelRio.AthosGoSoft.ConversorMoedas.Web\LucasDelRio.AthosGoSoft.ConversorMoedas.Web.csproj", "{DE093C65-BEFC-4C56-89B2-1E9874F3FA00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LucasDelRio.AthosGoSoft.ConversorMoedas.Service", "LucasDelRio.AthosGoSoft.ConversorMoedas.Service\LucasDelRio.AthosGoSoft.ConversorMoedas.Service.csproj", "{9CF7476B-B777-4CDA-99CF-190B8C5B313C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LucasDelRio.AthosGoSoft.ConversorMoedas.Service", "LucasDelRio.AthosGoSoft.ConversorMoedas.Service\LucasDelRio.AthosGoSoft.ConversorMoedas.Service.csproj", "{9CF7476B-B777-4CDA-99CF-190B8C5B313C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LucasDelRio.AthosGoSoft.ConversorMoedas.Domain", "LucasDelRio.AthosGoSoft.ConversorMoedas.Domain\LucasDelRio.AthosGoSoft.ConversorMoedas.Domain.csproj", "{3A3387FB-D478-4C9A-BE51-8E4ABDA69B63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9CF7476B-B777-4CDA-99CF-190B8C5B313C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF7476B-B777-4CDA-99CF-190B8C5B313C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF7476B-B777-4CDA-99CF-190B8C5B313C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3387FB-D478-4C9A-BE51-8E4ABDA69B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3387FB-D478-4C9A-BE51-8E4ABDA69B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3387FB-D478-4C9A-BE51-8E4ABDA69B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3387FB-D478-4C9A-BE51-8E4ABDA69B63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
